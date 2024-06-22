@@ -1,6 +1,6 @@
 
 function taskbar() {
     setInterval(() => {
-        document.querySelector('.taskbar__right').innerHTML = `<p class="text-2xl font-bold"> ${new Date().toLocaleTimeString()}</p>`
+        document.querySelector('.taskbar__right').innerHTML = `${new Date().toLocaleTimeString()}`
     }, 1000)
 }

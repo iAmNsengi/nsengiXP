@@ -1,12 +1,22 @@
 
 function main() {
-
     let newX = 0, newY = 0, startX = 0, startY = 0;
 
-    const card = document.getElementById('card')
     const titleBar = document.querySelector('.title-bar')
-    card.style.top = Math.floor(Math.random() * 20) + 'vh'
-    card.style.left = Math.floor(Math.random() * 70) + 'vw'
+
+    const windows = document.querySelectorAll('.window');
+
+    windows.forEach(el => {
+        const randomTop = Math.floor(Math.random() * 20) + 'vh';
+        const randomLeft = Math.floor(Math.random() * 70) + 'vw';
+
+        el.style.position = 'absolute'; // Ensure position is set correctly
+        el.style.top = randomTop;
+        el.style.left = randomLeft;
+
+        console.log(`Element: ${el}, Top: ${randomTop}, Left: ${randomLeft}`); // Debugging output
+    });
+
     titleBar.addEventListener('mousedown', mouseDown)
 
     function mouseDown(e) {
@@ -29,5 +39,5 @@ function main() {
         document.removeEventListener('mousemove', mouseMove)
     }
 
-    
+
 }
