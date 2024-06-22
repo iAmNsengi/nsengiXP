@@ -1,43 +1,48 @@
-
 function main() {
-    let newX = 0, newY = 0, startX = 0, startY = 0;
-
-    const titleBar = document.querySelector('.title-bar')
-
     const windows = document.querySelectorAll('.window');
 
-    windows.forEach(el => {
+    windows.forEach(window => {
+        const titleBar = window.querySelector('.title-bar');
+        let startX = 0, startY = 0;
+        let initialWindowOffsetX = 0, initialWindowOffsetY = 0;
+        let isDragging = false;
+
         const randomTop = Math.floor(Math.random() * 20) + 'vh';
         const randomLeft = Math.floor(Math.random() * 70) + 'vw';
+        window.style.position = 'absolute';
+        window.style.top = randomTop;
+        window.style.left = randomLeft;
 
-        el.style.position = 'absolute'; // Ensure position is set correctly
-        el.style.top = randomTop;
-        el.style.left = randomLeft;
+        titleBar.addEventListener('mousedown', mouseDown);
 
-        console.log(`Element: ${el}, Top: ${randomTop}, Left: ${randomLeft}`); // Debugging output
+        function mouseDown(e) {
+            isDragging = true;
+            startX = e.clientX;
+            startY = e.clientY;
+
+            const { left, top } = window.getBoundingClientRect();
+            initialWindowOffsetX = startX - left;
+            initialWindowOffsetY = startY - top;
+
+            document.addEventListener('mousemove', mouseMove);
+            document.addEventListener('mouseup', mouseUp);
+        }
+
+        function mouseMove(e) {
+            if (!isDragging) return;
+
+            const newLeft = e.clientX - initialWindowOffsetX;
+            const newTop = e.clientY - initialWindowOffsetY;
+
+            window.style.left = `${newLeft}px`;
+            window.style.top = `${newTop}px`;
+        }
+
+        function mouseUp() {
+            isDragging = false;
+            document.removeEventListener('mousemove', mouseMove);
+            document.removeEventListener('mouseup', mouseUp);
+        }
     });
-
-    titleBar.addEventListener('mousedown', mouseDown)
-
-    function mouseDown(e) {
-        startX = e.clientX
-        startY = e.clientY
-        document.addEventListener('mousemove', mouseMove)
-        document.addEventListener('mouseup', mouseUp)
-    }
-
-    function mouseMove(e) {
-        newX = startX - e.clientX
-        newY = startY - e.clientY
-        startX = e.clientX
-        startY = e.clientY
-        card.style.top = (card.offsetTop - newY) + 'px'
-        card.style.left = (card.offsetLeft - newX) + 'px'
-    }
-
-    function mouseUp(e) {
-        document.removeEventListener('mousemove', mouseMove)
-    }
-
-
 }
+
