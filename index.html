@@ -23,6 +23,7 @@
             loadedComponents++;
             if (loadedComponents === totalComponents) {
                 main()
+                taskbar()
             }
         };
         loadComponents("intro", "src/components/intro.html", componentLoaded);
@@ -38,4 +39,6 @@
 </body>
   </body>
   <script src="./main.js"></script>
+  <script src="./src/scripts/taskbar.js"></script>
+
 </html>
