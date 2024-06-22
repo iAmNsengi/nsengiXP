@@ -1,0 +1,67 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #212228;
+  background-image: linear-gradient(#292a30 0.1em, transparent 0.1em),
+    linear-gradient(90deg, #292a30 0.1em, transparent 0.1em);
+  background-size: 4em 4em;
+  height: 100vh;
+}
+
+#card {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: fixed;
+}
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    #0997ff,
+    #0053ee 8%,
+    #0050ee 40%,
+    #06f 88%,
+    #06f 93%,
+    #005bff 95%,
+    #003dd7 96%,
+    #003dd7
+  );
+  width: 100vw;
+  height: 30px;
+}
+.taskbar__start {
+  height: 100%;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  font-style: italic;
+  border: none;
+  border-radius: 0px 10px 12px 0px;
+  box-shadow: 0px 5px 10px #79ce71 inset;
+  background: radial-gradient(circle, #5eac56 0%, #3c873c 100%) center/cover
+    no-repeat;
+
+  display: flex;
+  align-items: center;
+}
+.taskbar--logo {
+  width: auto;
+  height: 80%;
+}
+
+.window__hello {
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.window__tab {
+  position: absolute;
+  left: 3rem;
+  top: 3rem;
+}

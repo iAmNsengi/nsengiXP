@@ -3,28 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="https://unpkg.com/xp.css" />
     <title>DragDrop</title>
+    <script defer>
+      const loadComponents = (id, url, callback) => {
+        fetch(url)
+            .then((response) => response.text())
+            .then((html) => {
+                document.getElementById(id).innerHTML = html;
+                if (callback) callback();
+            });
+    };
+    window.onload = () => {
+        let loadedComponents = 0;
+        const totalComponents = 1;
+
+        const componentLoaded = () => {
+            loadedComponents++;
+            if (loadedComponents === totalComponents) {
+                main()
+            }
+        };
+        loadComponents("intro", "src/components/intro.html", componentLoaded);
+        loadComponents("taskbar", "src/components/taskbar.html", componentLoaded);
+
+    };
+    </script>
   </head>
   <body>
-    <div id="container">
-      <div class="window" id="card" style="width: 300px">
-        <div class="title-bar">
-          <div class="title-bar-text">Intro...</div>
-          <div class="title-bar-controls">
-            <button aria-label="Minimize"></button>
-            <button aria-label="Maximize"></button>
-            <button aria-label="Close"></button>
-          </div>
-        </div>
-        <div class="window-body">
-          <p>Hey There iAmNsengi!</p>
-        </div>
-      </div>
-    </div>
+    <div id="intro"></div>
+    <div id="taskbar"></div>
 
-    <div id="navigation"></div>
+</body>
   </body>
   <script src="./main.js"></script>
 </html>
