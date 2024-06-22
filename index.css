@@ -39,6 +39,7 @@ body {
 }
 .taskbar__start {
   height: 100%;
+  cursor: pointer;
   color: white;
   font-weight: bold;
   font-size: 1.1rem;
@@ -118,14 +119,23 @@ body {
   height: 50px;
   border-radius: 50%;
 }
-.start_menu .header_title h4 {
-  margin-left: 20px;
-}
+
 .start_menu .nav {
   background: rgb(211, 229, 250);
   padding: 15px;
   width: 100%;
   color: rgb(55, 55, 56);
+}
+.start_menu .header_name {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+.start_menu .header_name h5 {
+  margin-top: -20px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
 }
 
 .start_menu .nav .nav_container p {
