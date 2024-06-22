@@ -130,6 +130,7 @@ body {
 
 .start_menu .nav .nav_container p {
   font-size: 20px;
+  cursor: pointer;
 }
 .divider {
   margin: 5px 0px;
