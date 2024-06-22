@@ -88,6 +88,7 @@ body {
 }
 /* start menu starts here */
 .start_menu {
+  display: none;
   height: 60vh;
   background: linear-gradient(
       to bottom,
@@ -122,20 +123,14 @@ body {
 }
 .start_menu .nav {
   background: rgb(211, 229, 250);
-  padding: 20px;
+  padding: 15px;
   width: 100%;
   color: rgb(55, 55, 56);
 }
-.start_menu ul {
-  gap: 10px;
-  display: flex;
-  flex-direction: column;
-}
-.start_menu li {
-  list-style-type: none;
-  font-size: 15px;
-}
 
+.start_menu .nav .nav_container p {
+  font-size: 20px;
+}
 .divider {
   margin: 5px 0px;
   height: 1px;
