@@ -86,3 +86,64 @@ body {
   left: 3rem;
   top: 3rem;
 }
+/* start menu starts here */
+.start_menu {
+  height: 60vh;
+  background: linear-gradient(
+      to bottom,
+      #245edb 0%,
+      #3f8cf3 9%,
+      #245edb 18%,
+      #245edb 92%,
+      #333 100%
+    )
+    center/cover no-repeat;
+  box-shadow: 0px 5px 10px #7fb979 inset;
+  width: 40vh;
+  position: absolute;
+  bottom: 0;
+  color: white;
+  border-top-right-radius: 20px;
+  overflow: hidden;
+}
+.start_menu .header_title {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  margin-left: 10px;
+}
+.start_menu .header_title img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.start_menu .header_title h4 {
+  margin-left: 20px;
+}
+.start_menu .nav {
+  background: rgb(211, 229, 250);
+  padding: 20px;
+  width: 100%;
+  color: rgb(55, 55, 56);
+}
+.start_menu ul {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.start_menu li {
+  list-style-type: none;
+  font-size: 15px;
+}
+
+.divider {
+  margin: 5px 0px;
+  height: 1px;
+  background: linear-gradient(
+      to right,
+      white 0%,
+      rgb(211, 211, 200) 50%,
+      white 100%
+    )
+    center/cover no-repeat;
+}

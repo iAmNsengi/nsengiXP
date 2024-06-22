@@ -17,7 +17,7 @@
     };
     window.onload = () => {
         let loadedComponents = 0;
-        const totalComponents = 3;
+        const totalComponents = 4;
 
         const componentLoaded = () => {
             loadedComponents++;
@@ -29,7 +29,7 @@
         loadComponents("intro", "src/components/intro.html", componentLoaded);
         loadComponents("taskbar", "src/components/taskbar.html", componentLoaded);
         loadComponents("me", "src/components/me.html", componentLoaded);
-
+        loadComponents("start-menu", "src/components/start_menu.html", componentLoaded);
 
     };
     </script>
@@ -37,7 +37,7 @@
   <body>
     <div id="me"></div>
     <div id="intro"></div>
-
+    <div id="start-menu"></div>
     <div id="taskbar"></div>
 
 </body>
