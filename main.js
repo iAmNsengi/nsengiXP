@@ -1,8 +1,15 @@
+
+
 let newX = 0, newY = 0, startX = 0, startY = 0;
 
 const card = document.getElementById('card')
+const titleBar = document.querySelector('.title-bar')
 
-card.addEventListener('mousedown', mouseDown)
+card.style.top = Math.floor(Math.random() * 20) + '%'
+card.style.left = Math.floor(Math.random() * 70) + '%'
+
+
+titleBar.addEventListener('mousedown', mouseDown)
 
 function mouseDown(e) {
     startX = e.clientX
@@ -13,6 +20,7 @@ function mouseDown(e) {
 }
 
 function mouseMove(e) {
+
     newX = startX - e.clientX
     newY = startY - e.clientY
 
@@ -24,5 +32,6 @@ function mouseMove(e) {
 }
 
 function mouseUp(e) {
+
     document.removeEventListener('mousemove', mouseMove)
 }
