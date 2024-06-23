@@ -27,6 +27,7 @@ function main() {
             // Increase the z-index to bring the window to the front
             highestZIndex++;
             window.style.zIndex = highestZIndex;
+            document.querySelector('.taskbar').style.zIndex = highestZIndex + 2
         }
 
         function mouseDown(e) {
