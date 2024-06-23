@@ -52,7 +52,7 @@ function main() {
 
             const newLeft = e.clientX - initialWindowOffsetX;
             const newTop = e.clientY - initialWindowOffsetY;
-
+            bringToFront()
 
             // Boundary checks
             const bodyRect = document.body.getBoundingClientRect();
