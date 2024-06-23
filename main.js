@@ -33,6 +33,7 @@ function main() {
             isDragging = true;
             startX = e.clientX;
             startY = e.clientY;
+            bringToFront()
 
             const { left, top } = window.getBoundingClientRect();
             initialWindowOffsetX = startX - left;
@@ -50,6 +51,7 @@ function main() {
 
             const newLeft = e.clientX - initialWindowOffsetX;
             const newTop = e.clientY - initialWindowOffsetY;
+
 
             // Boundary checks
             const bodyRect = document.body.getBoundingClientRect();
@@ -75,6 +77,7 @@ function main() {
             const touch = e.touches[0];
             startX = touch.clientX;
             startY = touch.clientY;
+            bringToFront()
 
             const { left, top } = window.getBoundingClientRect();
             initialWindowOffsetX = startX - left;
