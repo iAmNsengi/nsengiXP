@@ -123,15 +123,16 @@ function taskbar() {
         document.querySelector('.taskbar__right').innerHTML = `${new Date().toLocaleTimeString()}`
     }, 1000)
 
-    document.querySelector('.taskbar__start').addEventListener('click', () => {
-        const startMenu = document.querySelector('.start_menu');
-        if (startMenu.style.display === 'block') {
-            startMenu.style.display = 'none';
-            document.querySelector('.taskbar').style.zIndex = highestZIndex + 2
-        } else {
-            startMenu.style.display = 'block';
-            startMenu.style.zIndex = highestZIndex
-            document.querySelector('.taskbar').style.zIndex = highestZIndex + 2
-        }
-    })
+    document.querySelector('.taskbar__start').addEventListener('click', startMenu)
+}
+function startMenu() {
+    const startMenu = document.querySelector('.start_menu');
+    if (startMenu.style.display === 'block') {
+        startMenu.style.display = 'none';
+        document.querySelector('.taskbar').style.zIndex = highestZIndex + 2
+    } else {
+        startMenu.style.display = 'block';
+        startMenu.style.zIndex = highestZIndex
+        document.querySelector('.taskbar').style.zIndex = highestZIndex + 2
+    }
 }
