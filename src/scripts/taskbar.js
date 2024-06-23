@@ -11,5 +11,8 @@ function taskbar() {
         } else {
             startMenu.style.display = 'block';
         }
+
     })
+
+
 }
