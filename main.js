@@ -28,6 +28,8 @@ function main() {
             highestZIndex++;
             window.style.zIndex = highestZIndex;
             document.querySelector('.taskbar').style.zIndex = highestZIndex + 2
+            document.querySelector('.start_menu').style.zIndex = highestZIndex + 2
+
         }
 
         function mouseDown(e) {
@@ -49,10 +51,11 @@ function main() {
 
         function mouseMove(e) {
             if (!isDragging) return;
+            bringToFront()
+
 
             const newLeft = e.clientX - initialWindowOffsetX;
             const newTop = e.clientY - initialWindowOffsetY;
-            bringToFront()
 
             // Boundary checks
             const bodyRect = document.body.getBoundingClientRect();
@@ -68,6 +71,7 @@ function main() {
         }
 
         function mouseUp() {
+            bringToFront()
             isDragging = false;
             document.removeEventListener('mousemove', mouseMove);
             document.removeEventListener('mouseup', mouseUp);
@@ -94,6 +98,7 @@ function main() {
         function touchMove(e) {
             if (!isDragging) return;
             const touch = e.touches[0];
+            bringToFront()
 
             const newLeft = touch.clientX - initialWindowOffsetX;
             const newTop = touch.clientY - initialWindowOffsetY;
@@ -112,6 +117,7 @@ function main() {
         }
 
         function touchEnd() {
+            bringToFront()
             isDragging = false;
             document.removeEventListener('touchmove', touchMove);
             document.removeEventListener('touchend', touchEnd);
