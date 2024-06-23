@@ -1,6 +1,7 @@
+let highestZIndex = 1;
+
 function main() {
     const windows = document.querySelectorAll('.window');
-    let highestZIndex = 1;
 
     windows.forEach(window => {
         const titleBar = window.querySelector('.title-bar');
