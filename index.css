@@ -87,6 +87,12 @@ body {
   left: 3rem;
   top: 3rem;
 }
+.title-bar {
+  cursor: move;
+}
+button {
+  cursor: pointer;
+}
 /* start menu starts here */
 .start_menu {
   display: none;

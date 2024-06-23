@@ -32,7 +32,7 @@ function main() {
             isDragging = true;
             startX = e.clientX;
             startY = e.clientY;
-
+            bringToFront()
             const { left, top } = window.getBoundingClientRect();
             initialWindowOffsetX = startX - left;
             initialWindowOffsetY = startY - top;
