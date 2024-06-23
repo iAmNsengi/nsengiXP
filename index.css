@@ -171,6 +171,7 @@ button {
   opacity: 0.2;
   animation: bubble 15s ease-in-out infinite,
     sideWays 4s ease-in-out infinite alternate;
+  z-index: -40;
 }
 
 @keyframes bubble {
@@ -185,10 +186,13 @@ button {
 
 @keyframes sideWays {
   0% {
-    margin-left: 0px;
+    left: 0;
+  }
+  50% {
+    left: 40%;
   }
   100% {
-    margin-left: 200px;
+    left: 80%;
   }
 }
 
