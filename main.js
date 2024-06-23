@@ -81,11 +81,11 @@ function taskbar() {
         const startMenu = document.querySelector('.start_menu');
         if (startMenu.style.display === 'block') {
             startMenu.style.display = 'none';
+            document.querySelector('.taskbar').style.zIndex = highestZIndex + 2
         } else {
             startMenu.style.display = 'block';
             startMenu.style.zIndex = highestZIndex
+            document.querySelector('.taskbar').style.zIndex = highestZIndex + 2
         }
     })
-
-
 }
