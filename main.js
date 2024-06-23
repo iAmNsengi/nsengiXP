@@ -1,5 +1,6 @@
 function main() {
     const windows = document.querySelectorAll('.window');
+    let highestZIndex = 1;
 
     windows.forEach(window => {
         const titleBar = window.querySelector('.title-bar');
@@ -7,15 +8,24 @@ function main() {
         let initialWindowOffsetX = 0, initialWindowOffsetY = 0;
         let isDragging = false;
 
-        // Set initial random position
+        // Setting initial random position when page loads
         const randomTop = Math.floor(Math.random() * 20) + 'vh';
         const randomLeft = Math.floor(Math.random() * 70) + 'vw';
         window.style.position = 'absolute';
         window.style.top = randomTop;
         window.style.left = randomLeft;
 
-        // Mouse down event listener on title bar
+        // Bring the window to the front on mousedown
+        window.addEventListener('mousedown', bringToFront);
+
+        // Mouse down event listener on title-bar
         titleBar.addEventListener('mousedown', mouseDown);
+
+        function bringToFront() {
+            // Increasing the z-index to bring the window to the front of any other wwindows open
+            highestZIndex++;
+            window.style.zIndex = highestZIndex;
+        }
 
         function mouseDown(e) {
             isDragging = true;
@@ -28,6 +38,9 @@ function main() {
 
             document.addEventListener('mousemove', mouseMove);
             document.addEventListener('mouseup', mouseUp);
+
+            // Preventing the window from being brought to front multiple times
+            e.stopPropagation();
         }
 
         function mouseMove(e) {
@@ -36,7 +49,6 @@ function main() {
             const newLeft = e.clientX - initialWindowOffsetX;
             const newTop = e.clientY - initialWindowOffsetY;
 
-            // Boundary checks
             const bodyRect = document.body.getBoundingClientRect();
             const windowRect = window.getBoundingClientRect();
 
@@ -56,4 +68,3 @@ function main() {
         }
     });
 }
-
